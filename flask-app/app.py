@@ -16,7 +16,7 @@ def index():
     # entrypoint to our website
     return render_template("index.html")
 
-@app.route('/welcome')
+@app.route('/main')
 def welcome():
     # this page will get routed to when index.html is done. This is our input page.
     return render_template("main.html")
