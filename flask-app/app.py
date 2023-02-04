@@ -2,6 +2,12 @@ from flask import Flask, render_template
 
 app = Flask(__name__) # register current .py file as the module/app name
 
+def not_found(e):
+    return ("we fucked")
+def server_error(e):
+    return ("we fucked")
+
+
 app.register_error_handler(404, not_found)
 app.register_error_handler(500, server_error)
 
@@ -19,9 +25,3 @@ def welcome():
 def results():
     # this will get routed to when we are ready to display results-
     return render_template("results.html")
-
-def not_found(e):
-    return ("we fucked")
-
-def server_error(e):
-    return ("we fucked")
