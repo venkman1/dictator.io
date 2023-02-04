@@ -3,9 +3,9 @@ from flask import Flask, render_template
 app = Flask(__name__) # register current .py file as the module/app name
 
 def not_found(e):
-    return ("we fucked")
+    return render_template("not_found.html")
 def server_error(e):
-    return ("we fucked")
+    return render_template("server_error.html")
 
 
 app.register_error_handler(404, not_found)
