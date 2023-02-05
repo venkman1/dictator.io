@@ -16,10 +16,18 @@ def index():
     # entrypoint to our website
     return render_template("index.html")
 
-@app.route('/main')
+@app.route('/main', methods=['GET', 'POST'])
 def welcome():
     # this page will get routed to when index.html is done. This is our input page.
-    return render_template("main.html")
+    # here, we need to import our AI model and use some function that we define to generate
+    # our speech analysis. The input to said function will be the speech file or input that
+    # the user gives us on this main endpoint.
+    if request.method == 'GET':
+        return render_template("main.html")
+    elif request.method == 'POST':
+        # do the AI stuff.
+        pass
+
 
 @app.route('/results')
 def results():
