@@ -1,10 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="../static/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Ultra&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet" /> 
     <meta charset="UTF-8">
-    <title>Main</title>
+    <title>Speech Entry</title>
+    <style>
+        h2 {
+            font-size: 100px;
+            font-family: 'Ultra', serif;
+            margin: 0px;
+            position: fixed;
+            text-align: center;
+        }
+        input {
+            font-size: 50px;
+            font-family: 'Ultra', serif;
+            margin: auto;
+            position: fixed;
+            text-align: left;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 <body>
-   <h1>Gib speech.</h1>
+    <h2>
+    <label for="freeform">Enter your speech here:</label>
+    <br>
+    </h2>
+    <form method ="post">
+    <input id="input" name="input" placeholder="Enter text here" >
+    </input>
+    <button type="submit">Compute</button>
+    </form>
 </body>
 </html>
