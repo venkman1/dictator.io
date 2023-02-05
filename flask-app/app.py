@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__) # register current .py file as the module/app name
 
@@ -16,7 +16,7 @@ def index():
     # entrypoint to our website
     return render_template("index.html")
 
-@app.route('/welcome')
+@app.route('/main')
 def welcome():
     # this page will get routed to when index.html is done. This is our input page.
     return render_template("main.html")
@@ -25,3 +25,16 @@ def welcome():
 def results():
     # this will get routed to when we are ready to display results-
     return render_template("results.html")
+
+# below method was used to test how to get form data from an incoming http request
+@app.route('/test', methods=['GET', 'POST'])
+def test_form():
+    # data = request.form['input']
+    if request.method == 'GET':
+        print("method was get")
+        return render_template("test.html")
+    else:
+        # post method
+        data = request.form['input']
+        return ("you gave data: %s"%(data))
+    
