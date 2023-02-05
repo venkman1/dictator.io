@@ -1,0 +1,20 @@
+h1 {
+    text-align: center;
+    position: relative;
+    top: 200px;
+    color: maroon;
+    font-size: 100px;
+}
+
+h2 {
+    text-align: center;
+    position: relative;
+    top: 200px;
+    color: maroon;
+    font-size: 100px;
+}
+
+html {
+    background: url(404.png) no-repeat center fixed;
+    background-size: 100%;
+}
