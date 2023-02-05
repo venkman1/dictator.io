@@ -1,6 +1,12 @@
+import os
+import openai
+
+
 from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__) # register current .py file as the module/app name
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def not_found(e):
     return render_template("not_found.html")
@@ -25,14 +31,22 @@ def welcome():
     if request.method == 'GET':
         return render_template("main.html")
     elif request.method == 'POST':
-        # do the AI stuff.
-        pass
+        speech = request.form['input']
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=generate_prompt(speech),
+            temperature=0.6
+        )
+
+        return redirect(url_for("results", result = response.choices[0].text))
+
 
 
 @app.route('/results')
 def results():
     # this will get routed to when we are ready to display results-
-    return render_template("results.html")
+    result = request.args.get("result")
+    return render_template("results.html", result=result)
 
 # below method was used to test how to get form data from an incoming http request
 @app.route('/test', methods=['GET', 'POST'])
@@ -46,3 +60,10 @@ def test_form():
         data = request.form['input']
         return ("you gave data: %s"%(data))
     
+
+def generate_prompt(speech):
+    return """Decide if a Speech's sentiment is dictatorial, neutral, or democratic.
+Speech: {}
+Sentiment:""".format(
+        speech
+    )

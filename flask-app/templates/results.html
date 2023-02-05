@@ -44,14 +44,8 @@
     </style>
 </head>
 <body>
-   <h3>
-    Your speech is:
-   </h3>
-   <h4>
-    69%
-   </h4>
-   <h5>
-    Dictatorlike
-   </h5>
+    {% if result %}
+    <div class="result">{{ result }}</div>
+    {% endif %}
 </body>
 </html>
