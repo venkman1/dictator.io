@@ -1,12 +1,12 @@
 h1 {
     text-align: center;
     position: relative;
-    top: 200px;
+    top: 500px;
     color: maroon;
     font-size: 100px;
 }
-
 html {
     background: url(500.png) no-repeat center fixed;
-    background-size: 100%;
+    background-size: 75%;
+    background-position: center top 50px;
 }
