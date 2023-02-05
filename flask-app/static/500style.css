@@ -4,6 +4,7 @@ h1 {
     top: 500px;
     color: maroon;
     font-size: 100px;
+    font-family: 'Merriweather', serif;
 }
 html {
     background: url(500.png) no-repeat center fixed;

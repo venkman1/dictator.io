@@ -4,6 +4,7 @@ h1 {
     top: 200px;
     color: maroon;
     font-size: 100px;
+    font-family: 'Merriweather', serif;
 }
 
 h2 {
@@ -12,6 +13,7 @@ h2 {
     top: 200px;
     color: maroon;
     font-size: 100px;
+    font-family: 'Merriweather', serif;
 }
 
 html {
